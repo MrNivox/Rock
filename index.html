@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div></div>
+    <script>
+
+
+      function getComputerChoice()
+      {
+        let choice = null
+        let rand = Math.floor(Math.random() * 3)
+
+        if (rand == 0)
+        {
+         choice = "rock"
+        }
+        else if (rand == 1)
+        {
+          choice = "paper"
+        }
+        else
+        {
+            choice = "scissors"
+        }        
+        return choice
+      }
+
+      let s = true
+       
+      const div = document.querySelector('div')
+
+      const bRock = document.createElement("button")
+      const bPaper = document.createElement("button")
+      const bScissors = document.createElement("button")
+      const bPlay = document.createElement("button")
+      
+      
+
+      
+      
+      bRock.style.width = '200px'
+      bRock.style.height = '200px'
+      bPaper.style.width = '200px'
+      bPaper.style.height = '200px'
+      bScissors.style.width = '200px'
+      bScissors.style.height = '200px'
+      bPlay.style.height = "200px"
+      bPlay.style.widows = "200px"
+
+      bRock.innerText = "Rock"
+      bPaper.innerText = "Paper"
+      bScissors.innerText = "Scissors"
+      bPlay.innerText = "play"
+      
+
+
+
+      div.appendChild(bRock)
+      div.appendChild(bPaper)
+      div.appendChild(bScissors)
+      div.appendChild(bPlay)
+      
+      choice = null
+      
+      
+
+      
+      
+      bRock.addEventListener('click',function Rock(){choice = "rock"})
+      bPaper.addEventListener('click',function Paper(){choice = "paper"})
+      bScissors.addEventListener('click',function scissors(){choice = "scissors"})
+
+      
+    
+
+      let humanScore = 0
+      let computerScore = 0
+      function playRound(human , computer)
+      {
+         if (human == computer)
+         {
+          console.log("draw!!!")
+         };
+         if(human == "paper" && computer == "rock")
+         {
+          console.log("you won! paper beats rock")
+          humanScore = humanScore + 1
+         };
+         if(human == "paper" && computer == "scissors")
+         {
+          console.log("you lost! scissors beats paper")
+          computerScore = computerScore + 1
+         };
+         if(human == "rock" && computer == "paper")
+         {
+          console.log("you lost! paper beats rock")
+          computerScore = computerScore + 1
+         };
+         if(human == "rock" && computer == "scissors")
+         {
+          console.log("you won! rock beats scissors")
+          humanScore = humanScore + 1
+         };
+         if(human == "scissors" && computer == "rock")
+         {
+          console.log("you lost! rock beats scissors")
+          computerScore = computerScore + 1
+         };
+         if(human == "scissors" && computer == "paper")
+         {
+          console.log("you win! scissors beats paper")
+          humanScore = humanScore + 1
+         }
+      } 
+      bPlay.addEventListener('click', function Mieow() {
+
+
+
+        playRound(choice,getComputerChoice())
+      })
+   
+      
+
+   
+   </script>
+
+</body>
+</html>
